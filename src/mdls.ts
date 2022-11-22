@@ -10,12 +10,50 @@ import { metadatAttributeParsers } from "./utilities/metadataAttributeParsers";
 
 const exec = promisify(cExec);
 
+/**
+ * Get the metadata attributes for the specified file/folder
+ * 
+ * @param path Path of the file/folder to get the metadata attributes for
+ * @returns A promise for an object containing metadata attributes
+ * 
+ * @example
+ * (async () => {
+ *   try {
+ *     const data = await mdls("./src/index.ts");
+ *     console.log(data);
+ *   } catch (error) {
+ *     console.log(error);
+ *   }
+ * })();
+ */
 async function mdls(path: string): Promise<MetadataAttributes>;
+
+/**
+ * Get the metadata attributes for the specified file/folder
+ * 
+ * @param path Path of the file/folder to get the metadata attributes for
+ * @param attributeKeys Get only the metadata attribute values of the provided keys
+ * @returns A promise for an object containing the selected metadata attributes
+ * 
+ * @example
+ * (async () => {
+ *   try {
+ *     const data = await mdls("./src/index.ts", [
+ *       "kMDItemUserTags",
+ *       "kMDItemFSCreationDate",
+ *     ]);
+ *     console.log(data);
+ *   } catch (error) {
+ *     console.log(error);
+ *   }
+ * })();
+ */
 async function mdls<T extends MetadataAttributeKeyArray>(
   path: string,
   attributeKeys: T
 ): Promise<MetadataObjectFromArray<T>>;
-async function mdls(path: string, attributes?: MetadataAttributeKeyArray) {
+
+async function mdls(path: string, attributeKeys?: MetadataAttributeKeyArray) {
   if (process.platform !== "darwin")
     throw new Error(process.platform + " is not supported.");
 
