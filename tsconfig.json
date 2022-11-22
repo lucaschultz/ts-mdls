@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "rootDir": "src",
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
     "target": "es2016", /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
     "lib": [ /* Specify a set of bundled library declaration files that describe the target runtime environment. */
@@ -18,6 +19,7 @@
   },
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "tests"
   ]
 }
