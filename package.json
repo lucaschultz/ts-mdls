@@ -14,7 +14,7 @@
     },
     "author": "Luca Schultz",
     "repository": "github:lucaschultz/ts-mdls",
-    "license": "ISC",
+    "license": "MIT",
     "devDependencies": {
         "@types/benchmark": "^2.1.2",
         "@types/jest": "^29.2.3",
