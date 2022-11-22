@@ -13,13 +13,13 @@ const exec = promisify(cExec);
 async function mdls(path: string): Promise<MetadataAttributes>;
 async function mdls<T extends MetadataAttributeKeyArray>(
   path: string,
-  attributes: T
+  attributeKeys: T
 ): Promise<MetadataObjectFromArray<T>>;
 async function mdls(path: string, attributes?: MetadataAttributeKeyArray) {
   if (process.platform !== "darwin")
     throw new Error(process.platform + " is not supported.");
 
-  const names = attributes?.map((a) => `-name ${a}`).join(" ");
+  const names = attributeKeys?.map((a) => `-name ${a}`).join(" ");
 
   const { stdout } = await exec(`/usr/bin/mdls ${names ?? ""} ${path}`);
 
