@@ -59,7 +59,7 @@ async function mdls(path: string, attributeKeys?: MetadataAttributeKeyArray) {
 
   const names = attributeKeys?.map((a) => `-name ${a}`).join(" ");
 
-  const { stdout } = await exec(`/usr/bin/mdls ${names ?? ""} ${path}`);
+  const { stdout } = await exec(`/usr/bin/mdls ${names ?? ""} '${path}'`);
 
   const rawAttributes = stdout
     .split(/\s+(?=kMD)/)
