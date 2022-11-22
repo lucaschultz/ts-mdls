@@ -1,5 +1,7 @@
 # ts-mdls
 
+Get the metadata attributes of a file/folder.
+
 Lightweigth, dependency free, fully typed wrapper of the macOS [`mdls`](https://developer.apple.com/library/Mac/documentation/Darwin/Reference/ManPages/man1/mdls.1.html) command.
 
 ## Install
@@ -10,7 +12,7 @@ Lightweigth, dependency free, fully typed wrapper of the macOS [`mdls`](https://
 
 The package exports exactly one function which supports the following two signatures
 
-### Basic example
+### Basic Example
 
 ```ts
 (async () => {
@@ -108,9 +110,9 @@ kMDItemLogicalSize                     = 241
 kMDItemPhysicalSize                    = 4096
 ```
 
-### Example with arguments
+### Example With Arguments
 
-You can also pass in arguments (as Array of `MetadataAttributeKey`):
+You can also select which attributes (as Array of `MetadataAttributeKey`) you’d like of a file/folder:
 
 ```ts
 (async () => {
